@@ -150,6 +150,10 @@ remove_missing_values_in_data <- function(.args){
     .args$dv, .args$wid, .args$between,
     .args$within, .args$covariate
     )
+  model.variables <- c(
+    .args$dv, .args$wid, .args$between,
+    .args$within, .args$covariate
+  )
   complete.rows <- stats::complete.cases(.args$data[, model.variables])
   na.rows <- which(!complete.rows)
   na.exists <- length(na.rows) > 0
